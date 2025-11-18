@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 364513bf18374a479ebf530eacfac770, type: 3}
+  m_Name: AK-103_ItemConfig
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponItemConfig
+  <Id>k__BackingField: ak-103
+  <ItemType>k__BackingField: 3
+  <ItemRarity>k__BackingField: 1
+  <ItemName>k__BackingField: AK-103
+  <ItemDescription>k__BackingField: AK-103
+  <IconName>k__BackingField: AK-103
+  <Amount>k__BackingField: 1
+  <CellCapacity>k__BackingField: 1
+  <PrefabName>k__BackingField: AK-103

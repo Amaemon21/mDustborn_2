@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22989fc4aaca4fe891435493ae822978, type: 3}
+  m_Name: TinCan_ItemConfig
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultItemConfig
+  <Id>k__BackingField: tin_can
+  <ItemType>k__BackingField: 1
+  <ItemRarity>k__BackingField: 1
+  <ItemName>k__BackingField: "\u041A\u043E\u043D\u0441\u0435\u0440\u0432\u043D\u0430\u044F
+    \u0431\u0430\u043D\u043A\u0430"
+  <ItemDescription>k__BackingField: 
+  <IconName>k__BackingField: 'ItemsIcons[ItemsIcons_0]'
+  <Amount>k__BackingField: 1
+  <CellCapacity>k__BackingField: 1
+  <PrefabName>k__BackingField: 

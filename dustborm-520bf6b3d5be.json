@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dustborm",
+  "private_key_id": "520bf6b3d5be3015314052fdb29697b5b4394ae5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDK1fUMr5lV8opR\nRcb3cJReEtn298JDIBoK5TENyv5p5jtsPzSEtz0mdu0heIu6Tccn6FmNKoJLUxva\njSA9VGTV3fsG4OjGi4HThH1WcpHMvqXDwTWQaOwZGfUrki+DsQR4dfgsMlEIgCvD\nNid6JuU8E8vgsHTJwc/oreDLKQ81osP+0NIBPATyFPe1yWW8T+K4odUGTjre1rE4\naZCvRcvz9+oKbvSBrQfoLbX9Jpijl0b22r6BdRrwSnFSG30++RF3aA7kZcMCqBkK\nWvwZ2TIaGy6f1P7BTQjShk1pp0jBVYhvk2mxqqfwe4akHKsksoTvJoXP1MuUGfOi\nEcijUE7jAgMBAAECggEAEBR5KknLeqRRMdM5zEj5AiI1dF484MxtNBrqUiEbHTMa\n1+CE3daW+vMnpmUjkp/y32eMnePWU3lhtmhEu4fyvH+uFGQFICRUJPwWYaGQjG46\nvvOUtv+SZAUKSit7J9IDPDeB9qMAiI98qKuk4oqt1p7tJUFn6My8GkKalRCKu6Io\n7b3DVpCQlycNEF8dmSpf+Wcqbi7PccvjtzkBPCV2Zi/N1T0f/6sYdzOTjPrgc2JO\nB/mRJVinNs2oFionQ3LIWYz34GbiqHshjhyXCrKURiYKJNdsEMdbKodTPKNLZtk7\n/KiAJ8vYitfk13bN9Vq6/Yb/8OSi+fUZQ6kN+WxthQKBgQD3eBOz+YbvaXeUnUNI\n/pZ/ao7DI3j2Rw+LdcTbe1e1aIdO5GWt6cGbgFfUYisH9KxDzwIzwXFeKgB3U5Ey\ndx3nkmKITE8q5JNEFp8WXjwu4bPpF65lECUrja1ewTDkmYnLCIOXlo1leBx4BbPJ\nwnKhtgz5jYszOGqGtqhU1qLNVQKBgQDR0/1wmKAPtWwHc3lHLSH2vfFgBDqEvdmM\n7u3n0ualQfzi8BV73kC1iY+hLXnhhzDpLL5lgO4N2ymiS+M78cLIg5FXt4MEc6Fh\n6U41DIOpreewNvHoMwUH3xklpiUjLnDplNyvIb3TM5a6GOVsOnoDYskcUKWYVDEm\nxCAT3YJrVwKBgDsRe0p7Jf0hZHyhqPzUX+Hb8mWbovTN82TrYGivITlY0OtA0xBW\n+nJ+iPhV0kWc3j11POZTpxa92cyhssej7QxoQYKdDEyFsK0Q5To2lhDuqL3bfDH9\nT5H8yEQUwvHdwCkpSBe3xNpSeCEh408mTaxRwvkSEwbP0YWENdvCO6vdAoGAR8gR\n57cO6tDRyCrEzoiuGc8ZCBPqQQcBqakDUk9gACD29lvTvbBmyrPooub/zxuErABW\nkjrtNWhIcfEsJ5GpZRc9XZi2BYvZJbm+u38we5e2rx3c2+a4Td0QqUSRZ9u3XPFE\nHdWZLutzIO7rbX8DxqzAyCL+w4Hp3q0xnBonR7kCgYBrBUKEd87ZI0z1uuRlbatV\n0slCEDVcRiU5KZz61YtWT+2gwf+R/O8S4NMcXfG760mxzrrC3k1rcoj6wVSmYhcI\npBp5CTaRg+UR7ycJvginCrnR3g0ydpEzacn+HPyx9fbf7RWXKTmnZlhk4u3beA8L\nlNo9Rr9Vx59jyAO5WrYDaA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "my-dustborn-game@dustborm.iam.gserviceaccount.com",
+  "client_id": "112079515817353582026",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/my-dustborn-game%40dustborm.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

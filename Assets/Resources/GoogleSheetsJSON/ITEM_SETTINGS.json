@@ -1,0 +1,26 @@
+{
+  "Items": [
+    {
+      "Id": "ak-103",
+      "Type": 3,
+      "Rarity": 1,
+      "Name": "AK-103",
+      "Description": "AK-103",
+      "IconName": "AK-103",
+      "Amount": 1,
+      "CellCapacity": 1,
+      "PrefabName": "AK-103"
+    },
+    {
+      "Id": "tin_can",
+      "Type": 1,
+      "Rarity": 1,
+      "Name": "Консервная банка",
+      "Description": "",
+      "IconName": "ItemsIcons[ItemsIcons_0]",
+      "Amount": 1,
+      "CellCapacity": 1,
+      "PrefabName": null
+    }
+  ]
+}
