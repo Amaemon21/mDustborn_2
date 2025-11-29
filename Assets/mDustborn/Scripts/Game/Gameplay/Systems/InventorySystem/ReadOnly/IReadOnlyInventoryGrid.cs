@@ -1,4 +1,4 @@
-﻿using System;
+﻿using R3;
 using UnityEngine;
 
 namespace Inventory
@@ -9,6 +9,6 @@ namespace Inventory
         
         public IReadOnlyInventorySlot[,] GetSlots();
         
-        public event Action<Vector2Int> SizeChanged;
+        Observable<Vector2Int> SizeChanged { get; }
     }
 }

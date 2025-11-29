@@ -30,10 +30,10 @@ namespace Inventory
             return result;
         }
         
-        public AddItemsToInventoryGridResult AddItemsToInventory(string ownerId, Vector2Int slootCoords, string itemId, int amount = 1)
+        public AddItemsToInventoryGridResult AddItemsToInventory(string ownerId, Vector2Int slotCoords, string itemId, int amount = 1)
         {
             var inventory = _inventoriesMap[ownerId];
-            var result = inventory.AddItems(itemId, amount);
+            var result = inventory.AddItems(slotCoords, itemId, amount);
             _gameStateSaver.Save();
             return result;
         }
@@ -46,10 +46,10 @@ namespace Inventory
             return result;
         }
         
-        public RemoveItemsToInventoryGridResult RemoveItemsToInventory(string ownerId, Vector2Int slootCoords, string itemId, int amount = 1)
+        public RemoveItemsToInventoryGridResult RemoveItemsToInventory(string ownerId, Vector2Int slotCoords, string itemId, int amount = 1)
         {
             var inventory = _inventoriesMap[ownerId];
-            var result = inventory.RemoveItems(slootCoords, itemId, amount);
+            var result = inventory.RemoveItems(slotCoords, itemId, amount);
             _gameStateSaver.Save();
             return result;
         }

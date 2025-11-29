@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using R3;
 using UnityEngine;
 
 namespace Inventory
@@ -19,14 +20,18 @@ namespace Inventory
                 if (_data.Size != value)
                 {
                     _data.Size = value;
-                    SizeChanged?.Invoke(value);
+                    _sizeChanged.Value = value;
                 }
             }
         }
 
-        public event Action<Vector2Int> SizeChanged;
-        public event Action<string, int> ItemsAdded;
-        public event Action<string, int> ItemsRemoved;
+        private readonly ReactiveProperty<Vector2Int> _sizeChanged = new();
+        private readonly Subject<(string itemId, int amount)> _itemsAdded = new();
+        private readonly Subject<(string itemId, int amount)> _itemsRemoved = new();
+        
+        public Observable<Vector2Int> SizeChanged => _sizeChanged;
+        public Observable<(string itemId, int amount)> ItemsAdded => _itemsAdded;
+        public Observable<(string itemId, int amount)> ItemsRemoved => _itemsRemoved;
 
         public InventoryGrid(InventoryGridData data)
         {
@@ -62,30 +67,33 @@ namespace Inventory
             var itemsAddedToAvailableSlotsAmount = AddToFistAvailableSlots(itemId, remainingAmount, out remainingAmount);
             var totalAddedItemsAmount = itemsAddedToSlotsWithSameItemsAmount + itemsAddedToAvailableSlotsAmount;
             
+            if (totalAddedItemsAmount > 0)
+                _itemsAdded.OnNext((itemId, totalAddedItemsAmount));
+            
             return new AddItemsToInventoryGridResult(OwnerId, amount, totalAddedItemsAmount);
         }
 
         public AddItemsToInventoryGridResult AddItems(Vector2Int slotCoords ,string itemId, int amount)
         {
-            var slot = _slotsMap[slotCoords];
-            var newValue = slot.Amount + amount;
-            var itemsAddedAmount = 0;
+            InventorySlot slot = _slotsMap[slotCoords];
+            int newValue = slot.Amount + amount;
+            int itemsAddedAmount = 0;
 
             if (slot.IsEmpty)
             {
                 slot.ItemId = itemId;
             }
             
-            var itemSlotCapacity = GetItemSlotCapacity(itemId);
+            int itemSlotCapacity = GetItemSlotCapacity(itemId);
 
             if (newValue > itemSlotCapacity)
             {
-                var remainingItems = newValue - itemSlotCapacity;
-                var itemsToAddedAmount = itemSlotCapacity - slot.Amount;
+                int remainingItems = newValue - itemSlotCapacity;
+                int itemsToAddedAmount = itemSlotCapacity - slot.Amount;
                 itemsAddedAmount += itemsToAddedAmount;
                 slot.Amount = itemSlotCapacity;
                 
-                var result = AddItems(itemId, remainingItems);
+                AddItemsToInventoryGridResult result = AddItems(itemId, remainingItems);
                 itemsAddedAmount += result.ItemsAddedAmount;
             }
             else
@@ -93,6 +101,9 @@ namespace Inventory
                 itemsAddedAmount = amount;
                 slot.Amount = newValue;
             }
+            
+            if (itemsAddedAmount > 0)
+                _itemsAdded.OnNext((itemId, itemsAddedAmount));
             
             return new AddItemsToInventoryGridResult(OwnerId, amount, itemsAddedAmount);
         }
@@ -104,7 +115,7 @@ namespace Inventory
                 return new RemoveItemsToInventoryGridResult(OwnerId, amount, false);
             }
             
-            var amountToRemove = amount;
+            int amountToRemove = amount;
 
             for (int i = 0; i < Size.x; i++)
             {
@@ -126,13 +137,14 @@ namespace Inventory
 
                         if (amountToRemove == 0)
                         {
+                            _itemsRemoved.OnNext((itemId, amount));
                             return new RemoveItemsToInventoryGridResult(OwnerId, amount, true);
                         }
                     }
                     else
                     {
                         RemoveItems(slotCoords, itemId, amountToRemove);
-                        
+                        _itemsRemoved.OnNext((itemId, amount));
                         return new RemoveItemsToInventoryGridResult(OwnerId, amount, true);
                     }
                 }
@@ -156,6 +168,8 @@ namespace Inventory
             {
                 slot.ItemId = null;
             }
+            
+            _itemsRemoved.OnNext((itemId, amount));
             
             return new RemoveItemsToInventoryGridResult(OwnerId, amount, true);
         }

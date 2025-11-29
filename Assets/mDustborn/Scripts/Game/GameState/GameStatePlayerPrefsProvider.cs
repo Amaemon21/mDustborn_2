@@ -34,8 +34,7 @@ public class GameStatePlayerPrefsProvider : IGameStateProvider
         {
             Inventories = new List<InventoryGridData>()
             {
-                CreateTestInventory("MAIN"),
-                CreateTestInventory("NPC")
+                CreateTestInventory("MAIN")
             }
         };
             

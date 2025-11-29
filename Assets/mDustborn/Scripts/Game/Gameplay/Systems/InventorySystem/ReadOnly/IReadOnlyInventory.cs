@@ -1,11 +1,11 @@
-﻿using System;
+﻿using R3;
 
 namespace Inventory
 {
     public interface IReadOnlyInventory
     {
-        public event Action<string, int> ItemsAdded; 
-        public event Action<string, int> ItemsRemoved; 
+        Observable<(string itemId, int amount)> ItemsAdded { get; }
+        Observable<(string itemId, int amount)> ItemsRemoved { get; }
         
         public string OwnerId { get; }
         public int GetAmount(string itemId);

@@ -1,32 +1,25 @@
-﻿using System;
+﻿using Inventory;
+using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Inventory
+public class InventorySlotView : MonoBehaviour
 {
-    public class InventorySlotView : MonoBehaviour
-    {
-        [SerializeField] private Image _icon;
-        [SerializeField] private TMP_Text _textTitle;
-        [SerializeField] private TMP_Text _textAmount;
+    [SerializeField] private Image _icon;
+    [SerializeField] private TMP_Text _amountText;
 
-        public string Title
+    public void Bind(InventorySlotViewModel viewModel, CompositeDisposable disposables)
+    {
+        viewModel.Amount.BindTo(value =>
         {
-            get => _textTitle.text;
-            set => _textTitle.text = value;
-        }
-    
-        public int Amount
-        {
-            get => Convert.ToInt32(_textAmount.text);
-            set => _textAmount.text = value == 1 ? String.Empty : value.ToString();
-        } 
+            _amountText.text = value > 0 ? value.ToString() : string.Empty;
+        }, disposables);
         
-        public Sprite Icon
+        viewModel.Icon.BindTo(sprite =>
         {
-            get => _icon.sprite;
-            set => _icon.sprite = value;
-        }
+            _icon.sprite = sprite;
+            _icon.enabled = sprite != null;
+        }, disposables);
     }
 }

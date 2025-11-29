@@ -1,22 +1,37 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using R3;
+using TMPro;
 using UnityEngine;
 
 namespace Inventory
 {
     public class InventoryView : MonoBehaviour
     {
-        [SerializeField] private InventorySlotView[] _slots;
-        [SerializeField] private TMP_Text _textOwner;
+        [SerializeField] private TMP_Text _ownerText;
+        [SerializeField] private InventorySlotView[] _slotViews;
 
-        public string OwnerId
+        private CompositeDisposable _disposables = new();
+
+        public void Bind(InventoryGridViewModel viewModel)
         {
-            get => _textOwner.text;
-            set => _textOwner.text = value;
+            viewModel.OwnerId.BindTo(id => _ownerText.text = id, _disposables);
+            
+            IReadOnlyList<InventorySlotViewModel> slotVmViewModels = viewModel.SlotViewModels;
+            int count = Mathf.Min(_slotViews.Length, slotVmViewModels.Count);
+
+            for (int i = 0; i < count; i++)
+            {
+                InventorySlotView view = _slotViews[i];
+                InventorySlotViewModel slotVmViewModel = slotVmViewModels[i];
+                
+                view.Bind(slotVmViewModel, _disposables);
+            }
         }
 
-        public InventorySlotView GetInventorySlotsViews(int index)
+        private void OnDisable()
         {
-            return _slots[index]; 
+            _disposables?.Dispose();
+            _disposables = null;
         }
     }
 }
